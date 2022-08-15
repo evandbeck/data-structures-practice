@@ -88,6 +88,47 @@ class SinglyLinkedList {
         } 
         return false;
     }
+    // Adding a node to the Linked List at a specific position
+    insert(index, val) {
+        if(index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        let newNode = new Node(val);
+        let temp = prev.next;
+        let prev = this.get(index - 1);
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+    // Removing a node from a Linked List at a specific position
+    remove(index) {
+        if(index < 0 || index > this.length) return undefined;
+        if(index === this.length - 1) return this.pop();
+        if(index === 0) return this.shift();
+
+        let prevNode = this.get(index - 1);
+        let removed = prevNode.next
+        prevNode.next = removed.next;
+        this.length--;
+        return removed;
+    }
+    // Reversing the Linked List in place
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let next;
+        let prev = null;
+        for(let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
 }
 
 // let first = new Node("Hi")
