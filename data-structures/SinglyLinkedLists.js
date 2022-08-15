@@ -52,7 +52,41 @@ class SinglyLinkedList {
         this.length--;
         if(this.length === 0) {
             this.tail = null;
+        }
         return oldHead;
+    }
+    // Adding a new node to the beginning of a Linked List
+    unshift(val) {
+        let newNode = new Node(val);
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        }  else {
+            newNode.next = thisHead;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
+    // Retreiving a node by its positions in the Linked List
+    get(index) {
+        if(index < 0 || index >= this.length) return null;
+        let current = this.head;
+        let counter = 0;
+        while (counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+    // Changing the value of a node based on its position in the Linked List
+    set(index, val) {
+        let foundNode = this.get(index);
+        if(foundNode) {
+            foundNode.val = val;
+            return true;
+        } 
+        return false;
     }
 }
 
