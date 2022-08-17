@@ -58,4 +58,47 @@ class DoublyLinkedList {
         this.length--;
         return oldHead;
     }
+    // Adding a node to the beginning of the Doubly Linked List
+    unshift(val) {
+        let newNode = new Node(val);
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.head.prev = newNode;
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
+    // Accessing a node in a Doubly Linked List by its position
+    get(index) {
+        if(index < 0 || index >= this.length) return undefined;
+        if(index <= this.length/2) {
+            let count = 0;
+            let current = this.head;
+            while(count != index) {
+                current = current.next;
+                count++;
+            }
+        } else {
+            let count = this.length - 1;
+            let current = this.tail;
+            while(count !== index) {
+                current = current.prev;
+                count--;
+            }
+        }
+        return current;
+    }
+    // Replacing the value of a node in a Doubly Linked List
+    set(index, val) {
+        let foundNode = this.get(index);
+        if(foundNode != null) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
 }
