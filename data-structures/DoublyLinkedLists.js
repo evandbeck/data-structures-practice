@@ -32,7 +32,7 @@ class DoublyLinkedList {
     pop() {
         if(!this.head) return undefined;
         let poppedNode = this.tail;
-        if(this.length = 1) {
+        if(this.length === 1) {
             this.head = null;
             this.tail = null;
         } else {
@@ -95,7 +95,7 @@ class DoublyLinkedList {
     // Replacing the value of a node in a Doubly Linked List
     set(index, val) {
         let foundNode = this.get(index);
-        if(foundNode != null) {
+        if(foundNode !== null) {
             foundNode.val = val;
             return true;
         }
