@@ -8,8 +8,8 @@ I'll be using this directory to practice DS.
 - Queues
 - Binary Search Trees
 - Tree Traversal
-
 - Binary Heaps
+
 - Hash Tables
 - Graphs
 - Graph Traversal
