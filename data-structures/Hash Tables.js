@@ -46,4 +46,32 @@ class HashTable {
         }
         return undefined;
     }
+    // Values
+    values() {
+        let valuesArr = [];
+        for(let i = 0; i < this.keyMap.length; i++) {
+            if(this.keyMap[i]) {
+                for(let j = 0; j < this.keyMap[i]; j++) {
+                    if(!valuesArr.includes(this.keyMap[i][j][1])) {
+                        valuesArr.push(this.keyMap[i][j][1]);
+                    }
+                }
+            }
+        }
+        return valuesArr;
+    }
+    // Keys
+    keys() {
+        let keysArr = [];
+        for(let i = 0; i < this.keyMap.length; i++) {
+            if(this.keyMap[i]) {
+                for(let j = 0; j < this.keyMap[i]; j++) {
+                    if(!keysArr.includes(this.keyMap[i][j][0])) {
+                        keysArr.push(this.keyMap[i][j][0]);
+                    }
+                }
+            }
+        }
+        return valuesArr;
+    }
 }
