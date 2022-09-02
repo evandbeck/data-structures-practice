@@ -23,7 +23,11 @@ class Graph {
         )
     }
     // Removing a Vertex
-    removeVertex() {
-
+    removeVertex(vertex) {
+        while(this.adjacencyList[vertex].length) {
+            const adjacentVertex = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex, adjacentVertex);
+        }
+        delete this.adjacencyList[vertex];
     }
 }
