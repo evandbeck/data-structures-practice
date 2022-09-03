@@ -47,4 +47,25 @@ class Graph {
             });
         }) (start);
     }
+    // DFS Iterative
+    depthFirstIterative(start) {
+        const result = [];
+        const visited = {};
+        const stack = [start];
+        let currentVertex;
+
+        visited[start] = true;
+        while(stack.length) {
+            currentVertex = stack.pop();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentIndex].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    stack.push(neighbor);
+                }
+            });
+            return result;
+        }
+    }
 }
