@@ -13,5 +13,4 @@ I'll be using this directory to practice DS.
 - Graphs
 - Graph Traversal
 - Dijkstra's Algorithm
-
 - Dynamic Programming
